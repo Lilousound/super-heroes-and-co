@@ -1,0 +1,9 @@
+function HomePage() {
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <p className="text-center font-bold text-2xl">💻 Page Accueil 💻</p>
+    </div>
+  )
+}
+
+export default HomePage
