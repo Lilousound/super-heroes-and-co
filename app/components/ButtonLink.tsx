@@ -12,7 +12,8 @@ export function ButtonLink({
   children,
   className = '',
 }: ButtonLinkProps) {
-  const baseClasses = 'px-7 py-2 rounded-md transition-all focus:outline-none'
+  const baseClasses =
+    'px-7 py-2 rounded-lg transition-all focus:outline-none hover:scale-110 hover:shadow-lg'
   const variantClasses =
     'bg-orange-600 text-white shadow-lg hover:bg-orange-500 hover:shadow-xl'
   return (

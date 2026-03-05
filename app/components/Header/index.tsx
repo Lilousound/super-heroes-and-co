@@ -8,6 +8,7 @@ function Header() {
       <Link href="/home" className="pl-[20px] text-lg text-red-500">
         <Image src={logo} alt="Logo" width={120} height={120} />
       </Link>
+      <h1 className="text-5xl font-bold text-red-600">SuperHeroes and Co.</h1>
       <nav className="p-8 flex items-center justify-center gap-3">
         <Link href="/home" className="pl-[20px] text-xl text-red-600">
           Home
