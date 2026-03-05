@@ -1,18 +1,25 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import logo from '../../assets/logo.png'
 
 function Header() {
   return (
-    <nav>
-      <Link href="/home" className="pl-[20px] text-lg text-indigo-500">
-        Home
+    <div className="flex items-center justify-between p-4 border-b border-red-600 border-solid pb-2">
+      <Link href="/home" className="pl-[20px] text-lg text-red-500">
+        <Image src={logo} alt="Logo" width={120} height={120} />
       </Link>
-      <Link href="/survey/1" className="pl-[20px] text-lg text-violet-600">
-        Survey
-      </Link>
-      <Link href="/heroes" className="pl-[20px] text-lg text-purple-700">
-        Heroes
-      </Link>
-    </nav>
+      <nav className="p-8 flex items-center justify-center gap-3">
+        <Link href="/home" className="pl-[20px] text-xl text-red-600">
+          Home
+        </Link>
+        <Link href="/survey/1" className="pl-[20px] text-xl text-red-600">
+          Survey
+        </Link>
+        <Link href="/heroes" className="pl-[20px] text-xl text-red-600">
+          Heroes
+        </Link>
+      </nav>
+    </div>
   )
 }
 
