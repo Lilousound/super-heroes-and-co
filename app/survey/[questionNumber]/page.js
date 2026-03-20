@@ -1,8 +1,9 @@
 'use client' // Obligatoire car on utilise des hooks
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useParams } from 'next/navigation' // Permet de récupérer les paramètres de l'URL
 import { ButtonLink } from '../../components/ButtonLink'
 import { superheroQuestions } from '../../data/superheroQuestions'
+import { SurveyContext } from '../../context/SurveyContext'
 
 function Survey() {
   const { questionNumber } = useParams() // Récupère le numéro de la question depuis l'URL (ex: /survey/1 => questionNumber = 1)
@@ -13,13 +14,19 @@ function Survey() {
     (q) => q.id === questionNumberInt,
   ) // Trouve la question actuelle dans le tableau des questions en fonction de son ID
 
-  const [answers, setAnswers] = useState({}) // State pour stocker les réponses de l'utilisateur, initialisé à un objet vide
+  const [answered, setAnswered] = useState({}) // State pour stocker les réponses de l'utilisateur, initialisé à un objet vide
   const [isAnswered, setIsAnswered] = useState(false) // State pour stocker les réponses de l'utilisateur et savoir si la question a été répondue
+  const { answers, saveAnswers } = useContext(SurveyContext)
 
   const handleAnswerChange = (questionId, value) => {
-    setAnswers({ ...answers, [questionId]: value })
+    setAnswered({ ...answered, [questionId]: value })
     setIsAnswered(true)
   } // Fonction pour mettre à jour les réponses de l'utilisateur, en paramètre l'ID de la question et la valeur de la réponse, et met à jour le state en créant un nouvel objet avec les réponses précédentes et la nouvelle réponse
+
+  function saveReply(questionId, answer) {
+    saveAnswers({ [questionId]: answer })
+    console.log('Réponse sauvegardée :', { [questionId]: answer })
+  }
 
   return (
     <div className="h-screen mt-10 px-4">
@@ -30,20 +37,23 @@ function Survey() {
         Question {questionNumberInt}: {currentQuestion?.question}
       </h2>
       <div className="flex flex-col items-center justify-center mt-10">
-        {currentQuestion?.options.map((option, index) => (
+        {currentQuestion?.options.map((option) => (
           <label
-            key={index}
+            key={option.id}
             className="flex items-center gap-2 my-2 p-2 border border-gray-300 rounded-lg hover:bg-orange-50 cursor-pointer w-64 transition-colors"
           >
             <input
               type="radio"
               name={`question-${currentQuestion.id}`}
-              value={option}
-              checked={answers[currentQuestion.id] === option}
-              onChange={() => handleAnswerChange(currentQuestion.id, option)}
+              value={option.label}
+              checked={answered[currentQuestion.id] === option.label}
+              onChange={() =>
+                handleAnswerChange(currentQuestion.id, option.label)
+              }
               className="h-4 w-4 accent-orange-600 focus:ring-orange-500"
+              onClick={() => saveReply(currentQuestion.id, option.label)}
             />
-            {option}
+            {option.label}
           </label>
         ))}
       </div>

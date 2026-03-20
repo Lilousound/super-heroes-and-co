@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import './globals.css'
 import Header from './components/Header'
 import { ThemeProvider } from './context/ThemeContext'
+import { SurveyProvider } from './context/SurveyContext'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -30,7 +31,7 @@ export default function RootLayout({
       <body className="bg-white dark:bg-gray-900 text-black dark:text-white">
         <ThemeProvider>
           <Header />
-          {children}
+          <SurveyProvider>{children}</SurveyProvider>
         </ThemeProvider>
       </body>
     </html>
