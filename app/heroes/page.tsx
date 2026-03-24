@@ -1,19 +1,5 @@
 import Card from '../components/Card'
-
-const superheroProfiles = [
-  {
-    name: 'Tony Stark',
-    jobTitle: 'Iron Man - Engineer and Playboy Philanthropist',
-  },
-  {
-    name: 'Peter Parker',
-    jobTitle: 'Spider-Man - Friendly Neighborhood Hero',
-  },
-  {
-    name: 'Diana Prince',
-    jobTitle: 'Wonder Woman - Amazonian Warrior and Diplomat',
-  },
-]
+import { superheroProfiles } from '../data/heroes'
 
 function Heroes() {
   return (
@@ -30,6 +16,7 @@ function Heroes() {
             key={`${profile.name}-${index}`}
             label={profile.jobTitle}
             title={profile.name}
+            avatar={profile.avatar}
           />
         ))}
       </div>

@@ -4,12 +4,16 @@ export const superheroQuestions = [
     question: 'What is the main challenge you need help with?',
     type: 'radio',
     options: [
-      { id: 1, label: 'Saving the city from a villain' },
-      { id: 2, label: 'Finding a lost or hidden object' },
-      { id: 3, label: 'Motivating a team' },
-      { id: 4, label: 'Solving a complex puzzle' },
-      { id: 5, label: 'Protecting someone' },
-      { id: 6, label: 'Other' },
+      {
+        id: 1,
+        label: 'Saving the city from a villain',
+        tags: ['combat', 'urgent'],
+      },
+      { id: 2, label: 'Finding a lost or hidden object', tags: ['stealth'] },
+      { id: 3, label: 'Motivating a team', tags: ['leadership', 'teamwork'] },
+      { id: 4, label: 'Solving a complex puzzle', tags: ['technology'] },
+      { id: 5, label: 'Protecting someone', tags: ['combat', 'support'] },
+      { id: 6, label: 'Other', tags: [] },
     ],
   },
   {
@@ -17,12 +21,12 @@ export const superheroQuestions = [
     question: 'Which superpower is most important for your mission?',
     type: 'radio',
     options: [
-      { id: 1, label: 'Super strength' },
-      { id: 2, label: 'Flight' },
-      { id: 3, label: 'Invisibility' },
-      { id: 4, label: 'Telepathy' },
-      { id: 5, label: 'Super speed' },
-      { id: 6, label: 'Healing' },
+      { id: 1, label: 'Super strength', tags: ['combat'] },
+      { id: 2, label: 'Flight', tags: ['speed'] },
+      { id: 3, label: 'Invisibility', tags: ['stealth'] },
+      { id: 4, label: 'Telepathy', tags: ['support'] },
+      { id: 5, label: 'Super speed', tags: ['speed'] },
+      { id: 6, label: 'Healing', tags: ['support'] },
     ],
   },
   {
@@ -30,8 +34,8 @@ export const superheroQuestions = [
     question: 'Do you need a hero with combat skills?',
     type: 'radio',
     options: [
-      { id: 1, label: 'Yes' },
-      { id: 2, label: 'No' },
+      { id: 1, label: 'Yes', tags: ['combat'] },
+      { id: 2, label: 'No', tags: ['support'] },
     ],
   },
   {
@@ -39,11 +43,11 @@ export const superheroQuestions = [
     question: 'What kind of personality should your hero have?',
     type: 'radio',
     options: [
-      { id: 1, label: 'Charismatic leader' },
-      { id: 2, label: 'Quiet and strategic' },
-      { id: 3, label: 'Energetic and enthusiastic' },
-      { id: 4, label: 'Calm and wise' },
-      { id: 5, label: 'Rebellious and bold' },
+      { id: 1, label: 'Charismatic leader', tags: ['leadership', 'teamwork'] },
+      { id: 2, label: 'Quiet and strategic', tags: ['stealth'] },
+      { id: 3, label: 'Energetic and enthusiastic', tags: ['speed'] },
+      { id: 4, label: 'Calm and wise', tags: ['experienced'] },
+      { id: 5, label: 'Rebellious and bold', tags: ['solo'] },
     ],
   },
   {
@@ -51,8 +55,12 @@ export const superheroQuestions = [
     question: 'Is teamwork important for your mission?',
     type: 'radio',
     options: [
-      { id: 1, label: 'Yes, I need a hero who works well with others' },
-      { id: 2, label: 'No, a lone hero is fine' },
+      {
+        id: 1,
+        label: 'Yes, I need a hero who works well with others',
+        tags: ['teamwork'],
+      },
+      { id: 2, label: 'No, a lone hero is fine', tags: ['solo'] },
     ],
   },
   {
@@ -60,19 +68,26 @@ export const superheroQuestions = [
     question: 'What is your preferred hero experience level?',
     type: 'radio',
     options: [
-      { id: 1, label: 'Rookie (new but eager)' },
-      { id: 2, label: 'Experienced (proven track record)' },
-      { id: 3, label: 'Legendary (iconic and reliable)' },
+      { id: 1, label: 'Rookie (new but eager)', tags: [] }, // Pas de tag spécifique
+      {
+        id: 2,
+        label: 'Experienced (proven track record)',
+        tags: ['experienced'],
+      },
+      {
+        id: 3,
+        label: 'Legendary (iconic and reliable)',
+        tags: ['experienced'],
+      },
     ],
   },
   {
     id: 7,
-    question:
-      'Do you need a hero with technological skills (e.g., gadgets, hacking)?',
+    question: 'Do you need a hero with technological skills?',
     type: 'radio',
     options: [
-      { id: 1, label: 'Yes' },
-      { id: 2, label: 'No' },
+      { id: 1, label: 'Yes', tags: ['technology'] },
+      { id: 2, label: 'No', tags: [] },
     ],
   },
   {
@@ -80,9 +95,9 @@ export const superheroQuestions = [
     question: 'What is the urgency level of your mission?',
     type: 'radio',
     options: [
-      { id: 1, label: 'Low (can wait a few days)' },
-      { id: 2, label: 'Medium (within 24 hours)' },
-      { id: 3, label: 'High (immediate action required)' },
+      { id: 1, label: 'Low (can wait a few days)', tags: [] },
+      { id: 2, label: 'Medium (within 24 hours)', tags: [] },
+      { id: 3, label: 'High (immediate action required)', tags: ['urgent'] },
     ],
   },
   {
@@ -91,9 +106,9 @@ export const superheroQuestions = [
       'Do you prefer a hero with a secret identity or one who is publicly known?',
     type: 'radio',
     options: [
-      { id: 1, label: 'Secret identity (discreet)' },
-      { id: 2, label: 'Publicly known (inspiring)' },
-      { id: 3, label: 'No preference' },
+      { id: 1, label: 'Secret identity (discreet)', tags: ['stealth'] },
+      { id: 2, label: 'Publicly known (inspiring)', tags: ['leadership'] },
+      { id: 3, label: 'No preference', tags: [] },
     ],
   },
   {
@@ -101,11 +116,11 @@ export const superheroQuestions = [
     question: 'How do you want to contact your hero?',
     type: 'radio',
     options: [
-      { id: 1, label: 'By signal in the sky' },
-      { id: 2, label: 'By encrypted message' },
-      { id: 3, label: 'In person at HQ' },
-      { id: 4, label: 'Via a sidekick' },
-      { id: 5, label: 'Other' },
+      { id: 1, label: 'By signal in the sky', tags: ['leadership'] }, // Public
+      { id: 2, label: 'By encrypted message', tags: ['stealth'] }, // Discret
+      { id: 3, label: 'In person at HQ', tags: ['teamwork'] }, // Collaboration
+      { id: 4, label: 'Via a sidekick', tags: ['support'] }, // Soutien
+      { id: 5, label: 'Other', tags: [] },
     ],
   },
 ]
