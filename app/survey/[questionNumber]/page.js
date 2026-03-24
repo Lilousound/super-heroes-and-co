@@ -3,7 +3,7 @@ import { useState, useContext } from 'react'
 import { useParams } from 'next/navigation' // Permet de récupérer les paramètres de l'URL
 import { ButtonLink } from '../../components/ButtonLink'
 import { superheroQuestions } from '../../data/superheroQuestions'
-import { SurveyContext } from '../../context/SurveyContext'
+import { useSurvey } from '../../context/SurveyContext'
 
 function Survey() {
   const { questionNumber } = useParams() // Récupère le numéro de la question depuis l'URL (ex: /survey/1 => questionNumber = 1)
@@ -16,7 +16,7 @@ function Survey() {
 
   const [answered, setAnswered] = useState({}) // State pour stocker les réponses de l'utilisateur, initialisé à un objet vide
   const [isAnswered, setIsAnswered] = useState(false) // State pour stocker les réponses de l'utilisateur et savoir si la question a été répondue
-  const { answers, saveAnswers } = useContext(SurveyContext)
+  const { answers, saveAnswers } = useSurvey()
 
   const handleAnswerChange = (questionId, value) => {
     setAnswered({ ...answered, [questionId]: value })
@@ -25,7 +25,6 @@ function Survey() {
 
   function saveReply(questionId, answer) {
     saveAnswers({ [questionId]: answer })
-    console.log('Réponse sauvegardée :', { [questionId]: answer })
   }
 
   return (

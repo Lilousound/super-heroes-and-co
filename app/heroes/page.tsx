@@ -14,8 +14,9 @@ function Heroes() {
         {superheroProfiles.map((profile, index) => (
           <Card
             key={`${profile.name}-${index}`}
-            label={profile.jobTitle}
-            title={profile.name}
+            name={profile.name}
+            heroName={profile.heroName}
+            jobTitle={profile.jobTitle}
             avatar={profile.avatar}
           />
         ))}
