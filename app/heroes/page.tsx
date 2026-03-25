@@ -3,7 +3,7 @@ import { superheroProfiles } from '../data/heroes'
 
 function Heroes() {
   return (
-    <div className="items-center justify-center h-screen mt-9">
+    <div className="items-center justify-center mt-9 ">
       <h1 className="text-center font-bold text-3xl">
         Find your perfect SuperHero
       </h1>

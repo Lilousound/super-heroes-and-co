@@ -4,6 +4,7 @@ import './globals.css'
 import Header from './components/Header'
 import { ThemeProvider } from './context/ThemeContext'
 import { SurveyProvider } from './context/SurveyContext'
+import Footer from './components/Footer'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -32,6 +33,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Header />
           <SurveyProvider>{children}</SurveyProvider>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

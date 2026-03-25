@@ -10,7 +10,7 @@ function HomePage() {
   const textColor = theme === 'dark' ? 'text-gray-100' : 'text-gray-800'
   return (
     <div
-      className={`container mx-auto h-screen mt-9 ${bgColor} border-b border-gray-300 dark:border-gray-700 border-solid pb-2 rounded-lg flex items-start justify-around pt-24`}
+      className={`container mx-auto mt-9 pb-9 ${bgColor} border-b border-gray-300 dark:border-gray-700 border-solid pb-2 rounded-lg flex items-start justify-around pt-24 `}
     >
       {/* Bloc gauche : texte + bouton */}
       <div className="flex flex-col items-center max-w-2xl gap-4 mt-6">

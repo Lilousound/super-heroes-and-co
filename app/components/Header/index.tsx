@@ -20,13 +20,22 @@ function Header() {
       <h1 className="text-5xl font-bold text-red-600">SuperHeroes and Co.</h1>
       <div className="flex items-center justify-center gap-3">
         <nav className="p-8 flex items-center justify-center gap-3">
-          <Link href="/home" className="pl-[20px] text-xl text-red-600">
+          <Link
+            href="/home"
+            className="pl-[20px] text-xl text-red-600 hover:text-orange-400  hover:scale-110"
+          >
             Home
           </Link>
-          <Link href="/survey/1" className="pl-[20px] text-xl text-red-600">
+          <Link
+            href="/survey/1"
+            className="pl-[20px] text-xl text-red-600 hover:text-orange-400 hover:scale-110 "
+          >
             Survey
           </Link>
-          <Link href="/heroes" className="pl-[20px] text-xl text-red-600">
+          <Link
+            href="/heroes"
+            className="pl-[20px] text-xl text-red-600 hover:text-orange-400 hover:scale-110"
+          >
             Heroes
           </Link>
         </nav>

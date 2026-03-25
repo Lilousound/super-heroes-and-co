@@ -34,7 +34,7 @@ function Survey() {
     theme === 'light' ? 'hover:bg-orange-50' : 'hover:bg-gray-800'
 
   return (
-    <div className="h-screen mt-10 px-4">
+    <div className="mt-10 pb-9 px-4 h-[600px]">
       <h1 className="text-center font-bold text-2xl">
         🦸 Super Heroes & Co Survey 🦹
       </h1>
