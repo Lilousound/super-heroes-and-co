@@ -1,9 +1,10 @@
 'use client' // Obligatoire car on utilise des hooks
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { useParams } from 'next/navigation' // Permet de récupérer les paramètres de l'URL
 import { ButtonLink } from '../../components/ButtonLink'
 import { superheroQuestions } from '../../data/superheroQuestions'
 import { useSurvey } from '../../context/SurveyContext'
+import { useTheme } from '../../context/ThemeContext'
 
 function Survey() {
   const { questionNumber } = useParams() // Récupère le numéro de la question depuis l'URL (ex: /survey/1 => questionNumber = 1)
@@ -27,6 +28,11 @@ function Survey() {
     saveAnswers({ [questionId]: answer })
   }
 
+  // THEME
+  const { theme } = useTheme()
+  const hoverColor =
+    theme === 'light' ? 'hover:bg-orange-50' : 'hover:bg-gray-800'
+
   return (
     <div className="h-screen mt-10 px-4">
       <h1 className="text-center font-bold text-2xl">
@@ -39,7 +45,7 @@ function Survey() {
         {currentQuestion?.options.map((option) => (
           <label
             key={option.id}
-            className="flex items-center gap-2 my-2 p-2 border border-gray-300 rounded-lg hover:bg-orange-50 cursor-pointer w-64 transition-colors"
+            className={`flex items-center gap-2 my-2 p-2 border border-gray-300 rounded-lg ${hoverColor} cursor-pointer w-64 transition-colors`}
           >
             <input
               type="radio"

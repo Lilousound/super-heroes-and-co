@@ -1,3 +1,6 @@
+'use client'
+
+import { useTheme } from '../context/ThemeContext'
 import Image from 'next/image'
 
 interface CardProps {
@@ -17,15 +20,25 @@ function Card({
   matchScore,
   totalTags,
 }: CardProps) {
+  const { theme } = useTheme()
+  const bgColor = theme === 'light' ? 'bg-[#fff5f5]' : 'bg-[#212B43]'
+  const jobColor = theme === 'light' ? 'text-gray-600' : 'text-gray-400'
+  const borderColor =
+    theme === 'light' ? 'border-orange-100' : 'border-gray-700'
+
   return (
     <div className="grid grid-cols-1 gap-6 p-4">
       <div className="flex justify-center">
-        <div className="flex flex-col items-center p-6 rounded-xl shadow-md transform transition hover:scale-105 hover:shadow-lg bg-[#fff5f5] w-full max-w-[340px] h-[320px] mx-auto">
+        <div
+          className={`flex flex-col items-center p-6 rounded-xl shadow-md transform transition hover:scale-105 hover:shadow-lg  ${bgColor} w-full max-w-[340px] h-[320px] mx-auto`}
+        >
           <span className="inline-block px-3 py-1 mb-3 text-xl font-bold text-white bg-gradient-to-r from-red-500 to-orange-500 rounded-full">
             {name}
           </span>
 
-          <div className="p-1 mb-4 border-2 border-orange-100 rounded-full shadow-sm">
+          <div
+            className={`p-1 mb-4 border-2 ${borderColor} rounded-full shadow-sm`}
+          >
             <Image
               src={avatar}
               alt={`${heroName}'s Avatar`}
@@ -35,7 +48,7 @@ function Card({
             />
           </div>
           <p className="font-bold">{heroName}</p>
-          <span className="mt-2 text-base font-medium text-gray-600 italic">
+          <span className={`mt-2 text-base font-medium ${jobColor} italic`}>
             {jobTitle}
           </span>
 
